@@ -90,7 +90,7 @@ class _VerificationPageState extends State<VerificationPage> {
                   shape: const CircleBorder(),
                   padding: const EdgeInsets.all(10)
                 ),onPressed: () {
-                  Navigator.pushNamed(context, '/homepage');
+                  Navigator.pushNamed(context, '/congratulationspage');
                 }, child: const Icon(Icons.arrow_forward_rounded, size: 40,))
               ],
             ),

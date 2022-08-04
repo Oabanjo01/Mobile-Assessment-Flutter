@@ -3,6 +3,7 @@ import 'package:mobile_assessment_flutter/Screens/Main%20Pages/homepage.dart';
 import 'package:mobile_assessment_flutter/Screens/Registration/signin.dart';
 import 'package:mobile_assessment_flutter/Screens/Registration/signup.dart';
 import 'package:mobile_assessment_flutter/Screens/Registration/verification.dart';
+import 'package:mobile_assessment_flutter/Screens/congratulationscreen.dart';
 import 'package:mobile_assessment_flutter/Screens/introductoryScreen.dart';
 
 class RouteGenerator {
@@ -24,6 +25,9 @@ class RouteGenerator {
       );
       case '/verificationpage':
         return MaterialPageRoute(builder: (_) => VerificationPage()
+      );
+      case '/congratulationspage':
+        return MaterialPageRoute(builder: (_) => CongratulationsScreen()
       );
       default: 
         return _errorRoute();
