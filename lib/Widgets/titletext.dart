@@ -18,14 +18,15 @@ class TitleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.centerLeft,
+      alignment: Alignment.topLeft,
       height: size.height * textboxheight,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(text1,
-              style: TextStyle(fontSize: 24), textAlign: TextAlign.left),
-          Text(text2, textAlign: TextAlign.left)
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w500), textAlign: TextAlign.left),
+          SizedBox(height: size.height * 0.015,),
+          Text(text2,style: const TextStyle(fontWeight: FontWeight.w300), textAlign: TextAlign.left)
         ],
       ),
     );

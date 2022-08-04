@@ -5,10 +5,14 @@ class Button extends StatelessWidget {
   Button(
       {Key? key,
       // required this.function,
+      required this.curve,
+      this.borderColor = primaryColor,
+      this.color =primaryColor,
+      this.buttontextColor = textColor,
       required this.buttonText,
       required this.routename,
       required this.buttonHeight,
-      required this.labelTexts,
+      this.labelTexts,
       required this.butttonWidth})
       : super(key: key);
 
@@ -16,9 +20,12 @@ class Button extends StatelessWidget {
   final String buttonText;
   final double buttonHeight;
   final double butttonWidth;
+  final Color borderColor;
+  final Color color;
   final String routename;
-  final Map labelTexts;
-
+  final Map? labelTexts;
+  final double curve;
+  final Color buttontextColor;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -27,12 +34,14 @@ class Button extends StatelessWidget {
       height: size.height * buttonHeight,
       child: ElevatedButton(
         style: ButtonStyle(
-
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),))
+          elevation: MaterialStateProperty.all<double>(0),
+          side: MaterialStateProperty.all<BorderSide>(BorderSide(color: color, width: 3,style: BorderStyle.solid)),
+          backgroundColor: MaterialStateProperty.all<Color>(color),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(curve),))
         ),
         onPressed: () =>
             Navigator.of(context).pushNamed(routename, arguments: labelTexts),
-        child: Text(buttonText),
+        child: Text(buttonText, style: TextStyle(color: buttontextColor),),
       ),
     );
   }

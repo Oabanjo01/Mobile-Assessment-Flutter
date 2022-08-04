@@ -5,42 +5,50 @@ import '../Constants/constants.dart';
 class TextFields extends StatelessWidget {
   const TextFields({
     Key? key,
+    required this.headerText,
     this.hideText = false,
     required this.controller,
-    required this.helperText,
-    this.icon,
+    this.prefix,
   }) : super(key: key);
 
   final TextEditingController controller;
+  final String headerText;
   final bool hideText;
-  final String helperText;
-  final Icon? icon;
+  final Widget? prefix;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      textAlign: TextAlign.center,
-      cursorColor: primaryColor.withOpacity(0.7),
-      controller: controller,
-      obscureText: hideText,
-      maxLines: 1,
-      decoration: InputDecoration(
-        // contentPadding: EdgeInsets.only(left: 10, right: 10),
-        prefixIcon: Padding(
-          padding: const EdgeInsets.only(left: 8.0),
-          child: icon,
+    final size = MediaQuery.of(context).size;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(headerText, textAlign: TextAlign.left,),
+        SizedBox(height: size.height * 0.01,),
+        SizedBox(
+          height: size.height * 0.055,
+          child: TextField(
+            cursorColor: primaryColor.withOpacity(0.7),
+            controller: controller,
+            obscureText: hideText,
+            maxLines: 1,
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: secondaryColor,
+              // contentPadding: EdgeInsets.only(left: 10, right: 10),
+              prefixIcon: prefix,
+              focusColor: primaryColor,
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: secondaryColor, )),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide:
+                      BorderSide(color: secondaryColor.withOpacity(0.5), width: 0)),
+            ),
+          ),
         ),
-        focusColor: primaryColor,
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
-            borderSide: BorderSide(color: primaryColor, width: 1.5)),
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
-            borderSide:
-                BorderSide(color: primaryColor.withOpacity(0.5), width: 1.5)),
-        helperText: helperText,
-        helperStyle: TextStyle(color: primaryColor.withOpacity(0.6)),
-      ),
+        SizedBox(height: size.height * 0.01,),
+      ],
     );
   }
 }
