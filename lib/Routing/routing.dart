@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_assessment_flutter/Screens/Main%20Pages/homepage.dart';
 import 'package:mobile_assessment_flutter/Screens/Registration/signin.dart';
 import 'package:mobile_assessment_flutter/Screens/Registration/signup.dart';
+import 'package:mobile_assessment_flutter/Screens/Registration/verification.dart';
 import 'package:mobile_assessment_flutter/Screens/introductoryScreen.dart';
 
 class RouteGenerator {
@@ -20,6 +21,9 @@ class RouteGenerator {
       );
       case '/homepage':
         return MaterialPageRoute(builder: (_) => HomePage()
+      );
+      case '/verificationpage':
+        return MaterialPageRoute(builder: (_) => VerificationPage()
       );
       default: 
         return _errorRoute();

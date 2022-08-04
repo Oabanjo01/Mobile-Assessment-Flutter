@@ -111,7 +111,7 @@ class SignUp extends StatelessWidget {
                             borderColor: secondaryColor),
                         Button(
                           buttonText: 'Next',
-                          routename: '/splashscreen',
+                          routename: '/verificationpage',
                           buttonHeight: 0.07,
                           butttonWidth: 0.3,
                           curve: 25,
