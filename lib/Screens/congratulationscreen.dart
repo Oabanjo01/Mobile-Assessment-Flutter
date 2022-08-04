@@ -34,7 +34,7 @@ class CongratulationsScreen extends StatelessWidget {
                   curve: 30,
                   buttonHeight: 0.07,
                   butttonWidth: 0.6,
-                  routename: '/congratulationspage',
+                  routename: '/homepage',
                   buttonText: 'Continue',
                 )
               ],
